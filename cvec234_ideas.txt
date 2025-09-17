@@ -1,0 +1,3 @@
+* Use macros that specifies the dimension to ignore the last coordinate when you want to treat a normalized homogeneous vector as a cartesian vector:
+  - NORM3(a)
+  - SQUARED_DISTANCE3(a, b)
