@@ -45,7 +45,16 @@ void summarize_tests() {
 }
 
 int main() {
+    ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
+    ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
+    ASSERT_EQUAL_INT("DOT4", DOT4(((int3){1,2,3,4}), ((int3){5,6,7,8})), 70);
+
+    ASSERT_EQUAL_INT("SQUARED_NORM2", SQUARED_NORM2(((int2){1,2})), 5);
+    ASSERT_EQUAL_INT("SQUARED_NORM3", SQUARED_NORM3(((int3){1,2,3})), 14);
+
+    ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
+    ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
+
     summarize_tests();
-    
     return 0;
 }
