@@ -65,12 +65,7 @@ int main() {
     ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
     ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
 
-
-    double2x2 A = {.columns={{1,2},{3,4}}};
-    double2 b = {1,2};
-    double2 c = mul_double2x2_double2(A, b);
-    double2 e = {7,10};
-    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", c, e);
+    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2((double2x2){.columns={{1,2},{3,4}}}, (double2){1,2}), (double2){7,10});
     summarize_tests();
     return 0;
 }
