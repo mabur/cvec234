@@ -28,7 +28,7 @@ void ASSERT_EQUAL_INT(const char* description, int a, int b) {
 
 void ASSERT_EQUAL_FLOAT2(const char* description, float2 a, float2 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1]) {
+    if (ARE_EQUAL_VECTOR2(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f]!=[%f,%f] bad\n", description, a[0], a[1], b[0], b[1]);
@@ -38,7 +38,7 @@ void ASSERT_EQUAL_FLOAT2(const char* description, float2 a, float2 b) {
 
 void ASSERT_EQUAL_DOUBLE2(const char* description, double2 a, double2 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1]) {
+    if (ARE_EQUAL_VECTOR2(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f]!=[%f,%f] bad\n", description, a[0], a[1], b[0], b[1]);
@@ -48,7 +48,7 @@ void ASSERT_EQUAL_DOUBLE2(const char* description, double2 a, double2 b) {
 
 void ASSERT_EQUAL_FLOAT3(const char* description, float3 a, float3 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2]) {
+    if (ARE_EQUAL_VECTOR3(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f,%f]!=[%f,%f,%f] bad\n", description, a[0], a[1], a[2], b[0], b[1], b[2]);
@@ -58,7 +58,7 @@ void ASSERT_EQUAL_FLOAT3(const char* description, float3 a, float3 b) {
 
 void ASSERT_EQUAL_DOUBLE3(const char* description, double3 a, double3 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2]) {
+    if (ARE_EQUAL_VECTOR3(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f,%f]!=[%f,%f,%f] bad\n", description, a[0], a[1], a[2], b[0], b[1], b[2]);
@@ -68,7 +68,7 @@ void ASSERT_EQUAL_DOUBLE3(const char* description, double3 a, double3 b) {
 
 void ASSERT_EQUAL_FLOAT4(const char* description, float4 a, float4 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]) {
+    if (ARE_EQUAL_VECTOR4(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f,%f,%f]!=[%f,%f,%f,%f] bad\n", description, a[0], a[1], a[2], a[3], b[0], b[1], b[2], b[3]);
@@ -77,7 +77,7 @@ void ASSERT_EQUAL_FLOAT4(const char* description, float4 a, float4 b) {
 }
 void ASSERT_EQUAL_DOUBLE4(const char* description, double4 a, double4 b) {
     global_assert_count++;
-    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]) {
+    if (ARE_EQUAL_VECTOR4(a, b)) {
         printf("%s ok\n", description);
     } else {
         printf("%s [%f,%f,%f,%f]!=[%f,%f,%f,%f] bad\n", description, a[0], a[1], a[2], a[3], b[0], b[1], b[2], b[3]);
