@@ -66,6 +66,25 @@ void ASSERT_EQUAL_DOUBLE3(const char* description, double3 a, double3 b) {
     }
 }
 
+void ASSERT_EQUAL_FLOAT4(const char* description, float4 a, float4 b) {
+    global_assert_count++;
+    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]) {
+        printf("%s ok\n", description);
+    } else {
+        printf("%s [%f,%f,%f,%f]!=[%f,%f,%f,%f] bad\n", description, a[0], a[1], a[2], a[3], b[0], b[1], b[2], b[3]);
+        global_assert_errors++;
+    }
+}
+void ASSERT_EQUAL_DOUBLE4(const char* description, double4 a, double4 b) {
+    global_assert_count++;
+    if (a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]) {
+        printf("%s ok\n", description);
+    } else {
+        printf("%s [%f,%f,%f,%f]!=[%f,%f,%f,%f] bad\n", description, a[0], a[1], a[2], a[3], b[0], b[1], b[2], b[3]);
+        global_assert_errors++;
+    }
+}
+
 void summarize_tests() {
     if (global_assert_errors != 0) {
         printf("%d/%d test failed\n", global_assert_errors, global_assert_count);
@@ -89,6 +108,8 @@ int main() {
     ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2((double2x2){.columns={{1,2},{3,4}}}, (double2){1,2}), (double2){7,10});
     ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3((float3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}}, (float3){1,2,3}), (float3){1,2,3});
     ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3((double3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}}, (double3){1,2,3}), (double3){1,2,3});
+    ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4((float4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}}, (float4){1,2,3,4}), (float4){1,2,3,4});
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4((double4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}}, (double4){1,2,3,4}), (double4){1,2,3,4});
 
     summarize_tests();
     return 0;
