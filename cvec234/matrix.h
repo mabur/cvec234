@@ -19,9 +19,9 @@ typedef struct double4x4 {double4 columns[4];} double4x4;
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix equality:
 
-#define ARE_EQUAL_MATRIX2(A,B) (\
-    (A).column[0][0]==(B).column[0][0] && (A).column[1][0]==(B).column[1][0] && \
-    (A).column[0][1]==(B).column[0][1] && (A).column[1][1]==(B).column[1][1])
+#define ARE_EQUAL_MATRIX2(A, B) (\
+    (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && \
+    (A).column[0][1] == (B).column[0][1] && (A).column[1][1] == (B).column[1][1])
 
 #define ARE_EQUAL_MATRIX3(A, B) (\
     (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && (A).column[2][0] == (B).column[2][0] && \
@@ -33,7 +33,7 @@ typedef struct double4x4 {double4 columns[4];} double4x4;
     (A).column[0][1] == (B).column[0][1] && (A).column[1][1] == (B).column[1][1] && (A).column[2][1] == (B).column[2][1] && (A).column[3][1] == (B).column[3][1] && \
     (A).column[0][2] == (B).column[0][2] && (A).column[1][2] == (B).column[1][2] && (A).column[2][2] == (B).column[2][2] && (A).column[3][2] == (B).column[3][2] && \
     (A).column[0][3] == (B).column[0][3] && (A).column[1][3] == (B).column[1][3] && (A).column[2][3] == (B).column[2][3] && (A).column[3][3] == (B).column[3][3])
-    
+
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix-vector multiplication:
 
