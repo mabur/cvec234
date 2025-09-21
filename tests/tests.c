@@ -94,6 +94,13 @@ void summarize_tests() {
 }
 
 int main() {
+    auto If2 = (float2x2){.columns={{1,0},{0,1}}};
+    auto Id2 = (double2x2){.columns={{1,0},{0,1}}};
+    auto If3 = (float3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    auto Id3 = (double3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    auto If4 = (float4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    auto Id4 = (double4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+
     ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
     ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
     ASSERT_EQUAL_INT("DOT4", DOT4(((int3){1,2,3,4}), ((int3){5,6,7,8})), 70);
@@ -104,13 +111,13 @@ int main() {
     ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
     ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
 
-    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", mul_float2x2_float2((float2x2){.columns={{1,2},{3,4}}}, (float2){1,2}), (float2){7,10});
-    ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3((float3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}}, (float3){1,2,3}), (float3){1,2,3});
-    ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4((float4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}}, (float4){1,2,3,4}), (float4){1,2,3,4});
+    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", mul_float2x2_float2(If2, (float2){1,2}), (float2){1,2});
+    ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3(If3, (float3){1,2,3}), (float3){1,2,3});
+    ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4(If4, (float4){1,2,3,4}), (float4){1,2,3,4});
 
-    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2((double2x2){.columns={{1,2},{3,4}}}, (double2){1,2}), (double2){7,10});
-    ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3((double3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}}, (double3){1,2,3}), (double3){1,2,3});
-    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4((double4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}}, (double4){1,2,3,4}), (double4){1,2,3,4});
+    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2(Id2, (double2){1,2}), (double2){1,2});
+    ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3(Id3, (double3){1,2,3}), (double3){1,2,3});
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, (double4){1,2,3,4}), (double4){1,2,3,4});
 
     summarize_tests();
     return 0;
