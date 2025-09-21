@@ -94,12 +94,12 @@ void summarize_tests() {
 }
 
 int main() {
-    auto If2 = (float2x2){.columns={{1,0},{0,1}}};
-    auto Id2 = (double2x2){.columns={{1,0},{0,1}}};
-    auto If3 = (float3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}};
-    auto Id3 = (double3x3){.columns={{1,0,0},{0,1,0},{0,0,1}}};
-    auto If4 = (float4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
-    auto Id4 = (double4x4){.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    float2x2 If2 = {.columns={{1,0},{0,1}}};
+    double2x2 Id2 = {.columns={{1,0},{0,1}}};
+    float3x3 If3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    double3x3 Id3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    float4x4 If4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 Id4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
 
     ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
     ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
