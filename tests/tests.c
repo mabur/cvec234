@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include <cvec234/matrix.h>
+#include <cvec234/matrix_printing.h>
 #include <cvec234/vector.h>
 
 int global_assert_count = 0;
@@ -91,10 +92,11 @@ void ASSERT_EQUAL_FLOAT2x2(const char* description, float2x2 A, float2x2 B) {
     if (ARE_EQUAL_MATRIX2(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf("%s [%f,%f;%f,%f]!=[%f,%f;%f,%f] bad\n", description,
-            A.columns[0][0], A.columns[1][0], A.columns[0][1], A.columns[1][1],
-            B.columns[0][0], B.columns[1][0], B.columns[0][1], B.columns[1][1]
-        );
+        printf("%s ", description);
+        print_float2x2(A);
+        printf("!=");
+        print_float2x2(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
@@ -104,10 +106,11 @@ void ASSERT_EQUAL_DOUBLE2x2(const char* description, double2x2 A, double2x2 B) {
     if (ARE_EQUAL_MATRIX2(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf("%s [%f,%f;%f,%f]!=[%f,%f;%f,%f] bad\n", description,
-            A.columns[0][0], A.columns[1][0], A.columns[0][1], A.columns[1][1],
-            B.columns[0][0], B.columns[1][0], B.columns[0][1], B.columns[1][1]
-        );
+        printf("%s ", description);
+        print_double2x2(A);
+        printf("!=");
+        print_double2x2(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
@@ -117,15 +120,11 @@ void ASSERT_EQUAL_FLOAT3x3(const char* description, float3x3 A, float3x3 B) {
     if (ARE_EQUAL_MATRIX3(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf("%s [%f,%f,%f;%f,%f,%f;%f,%f,%f] != [%f,%f,%f;%f,%f,%f;%f,%f,%f] bad\n", description,
-            A.columns[0][0], A.columns[1][0], A.columns[2][0],
-            A.columns[0][1], A.columns[1][1], A.columns[2][1],
-            A.columns[0][2], A.columns[1][2], A.columns[2][2],
-
-            B.columns[0][0], B.columns[1][0], B.columns[2][0],
-            B.columns[0][1], B.columns[1][1], B.columns[2][1],
-            B.columns[0][2], B.columns[1][2], B.columns[2][2]
-        );
+        printf("%s ", description);
+        print_float3x3(A);
+        printf("!=");
+        print_float3x3(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
@@ -135,25 +134,11 @@ void ASSERT_EQUAL_DOUBLE3x3(const char* description, double3x3 A, double3x3 B) {
     if (ARE_EQUAL_MATRIX3(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf(
-            "%s "
-            "[%f,%f,%f;"
-            "%f,%f,%f;"
-            "%f,%f,%f] "
-            "!= "
-            "[%f,%f,%f;"
-            "%f,%f,%f;"
-            "%f,%f,%f] bad\n",
-            description,
-
-            A.columns[0][0], A.columns[1][0], A.columns[2][0],
-            A.columns[0][1], A.columns[1][1], A.columns[2][1],
-            A.columns[0][2], A.columns[1][2], A.columns[2][2],
-
-            B.columns[0][0], B.columns[1][0], B.columns[2][0],
-            B.columns[0][1], B.columns[1][1], B.columns[2][1],
-            B.columns[0][2], B.columns[1][2], B.columns[2][2]
-        );
+        printf("%s ", description);
+        print_double3x3(A);
+        printf("!=");
+        print_double3x3(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
@@ -163,29 +148,11 @@ void ASSERT_EQUAL_FLOAT4x4(const char* description, float4x4 A, float4x4 B) {
     if (ARE_EQUAL_MATRIX4(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf(
-            "%s "
-            "[%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f] "
-            "!= "
-            "[%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f] bad\n",
-            description,
-
-            A.columns[0][0], A.columns[1][0], A.columns[2][0], A.columns[3][0],
-            A.columns[0][1], A.columns[1][1], A.columns[2][1], A.columns[3][1],
-            A.columns[0][2], A.columns[1][2], A.columns[2][2], A.columns[3][2],
-            A.columns[0][3], A.columns[1][3], A.columns[2][3], A.columns[3][3],
-
-            B.columns[0][0], B.columns[1][0], B.columns[2][0], B.columns[3][0],
-            B.columns[0][1], B.columns[1][1], B.columns[2][1], B.columns[3][1],
-            B.columns[0][2], B.columns[1][2], B.columns[2][2], B.columns[3][2],
-            B.columns[0][3], B.columns[1][3], B.columns[2][3], B.columns[3][3]
-        );
+        printf("%s ", description);
+        print_float4x4(A);
+        printf("!=");
+        print_float4x4(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
@@ -195,29 +162,11 @@ void ASSERT_EQUAL_DOUBLE4x4(const char* description, double4x4 A, double4x4 B) {
     if (ARE_EQUAL_MATRIX4(A, B)) {
         printf("%s ok\n", description);
     } else {
-        printf(
-            "%s "
-            "[%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f] "
-            "!= "
-            "[%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f;"
-            "%f,%f,%f,%f] bad\n",
-            description,
-
-            A.columns[0][0], A.columns[1][0], A.columns[2][0], A.columns[3][0],
-            A.columns[0][1], A.columns[1][1], A.columns[2][1], A.columns[3][1],
-            A.columns[0][2], A.columns[1][2], A.columns[2][2], A.columns[3][2],
-            A.columns[0][3], A.columns[1][3], A.columns[2][3], A.columns[3][3],
-
-            B.columns[0][0], B.columns[1][0], B.columns[2][0], B.columns[3][0],
-            B.columns[0][1], B.columns[1][1], B.columns[2][1], B.columns[3][1],
-            B.columns[0][2], B.columns[1][2], B.columns[2][2], B.columns[3][2],
-            B.columns[0][3], B.columns[1][3], B.columns[2][3], B.columns[3][3]
-        );
+        printf("%s ", description);
+        print_double4x4(A);
+        printf("!=");
+        print_double4x4(B);
+        printf(" bad\n");
         global_assert_errors++;
     }
 }
