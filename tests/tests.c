@@ -246,6 +246,14 @@ int main() {
     ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3", inverse_double3x3(Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4", inverse_double4x4(Id4), Id4);
 
+    ASSERT_EQUAL_FLOAT2x2("INVERSE float 2x2", INVERSE(If2), If2);
+    ASSERT_EQUAL_FLOAT3x3("INVERSE float 3x3", INVERSE(If3), If3);
+    ASSERT_EQUAL_FLOAT4x4("INVERSE float 4x4", INVERSE(If4), If4);
+
+    ASSERT_EQUAL_DOUBLE2x2("INVERSE double 2x2", INVERSE(Id2), Id2);
+    ASSERT_EQUAL_DOUBLE3x3("INVERSE double 3x3", INVERSE(Id3), Id3);
+    ASSERT_EQUAL_DOUBLE4x4("INVERSE double 4x4", INVERSE(Id4), Id4);
+
     summarize_tests();
     return 0;
 }
