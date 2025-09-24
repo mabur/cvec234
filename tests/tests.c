@@ -238,6 +238,14 @@ int main() {
     ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3", mul_double3x3_double3x3(Id3, Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4", mul_double4x4_double4x4(Id4, Id4), Id4);
 
+    ASSERT_EQUAL_FLOAT2x2("inverse_float2x2", inverse_float2x2(If2), If2);
+    ASSERT_EQUAL_FLOAT3x3("inverse_float3x3", inverse_float3x3(If3), If3);
+    ASSERT_EQUAL_FLOAT4x4("inverse_float4x4", inverse_float4x4(If4), If4);
+
+    ASSERT_EQUAL_DOUBLE2x2("inverse_double2x2", inverse_double2x2(Id2), Id2);
+    ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3", inverse_double3x3(Id3), Id3);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4", inverse_double4x4(Id4), Id4);
+
     summarize_tests();
     return 0;
 }
