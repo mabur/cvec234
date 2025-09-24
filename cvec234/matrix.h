@@ -24,15 +24,15 @@ typedef struct double4x4 {double4 columns[4];} double4x4;
     (A).columns[0][1] == (B).columns[0][1] && (A).columns[1][1] == (B).columns[1][1])
 
 #define ARE_EQUAL_MATRIX3(A, B) (\
-    (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && (A).column[2][0] == (B).column[2][0] && \
-    (A).column[0][1] == (B).column[0][1] && (A).column[1][1] == (B).column[1][1] && (A).column[2][1] == (B).column[2][1] && \
-    (A).column[0][2] == (B).column[0][2] && (A).column[1][2] == (B).column[1][2] && (A).column[2][2] == (B).column[2][2])
+    (A).columns[0][0] == (B).columns[0][0] && (A).columns[1][0] == (B).columns[1][0] && (A).columns[2][0] == (B).columns[2][0] && \
+    (A).columns[0][1] == (B).columns[0][1] && (A).columns[1][1] == (B).columns[1][1] && (A).columns[2][1] == (B).columns[2][1] && \
+    (A).columns[0][2] == (B).columns[0][2] && (A).columns[1][2] == (B).columns[1][2] && (A).columns[2][2] == (B).columns[2][2])
 
 #define ARE_EQUAL_MATRIX4(A, B) (\
-    (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && (A).column[2][0] == (B).column[2][0] && (A).column[3][0] == (B).column[3][0] && \
-    (A).column[0][1] == (B).column[0][1] && (A).column[1][1] == (B).column[1][1] && (A).column[2][1] == (B).column[2][1] && (A).column[3][1] == (B).column[3][1] && \
-    (A).column[0][2] == (B).column[0][2] && (A).column[1][2] == (B).column[1][2] && (A).column[2][2] == (B).column[2][2] && (A).column[3][2] == (B).column[3][2] && \
-    (A).column[0][3] == (B).column[0][3] && (A).column[1][3] == (B).column[1][3] && (A).column[2][3] == (B).column[2][3] && (A).column[3][3] == (B).column[3][3])
+    (A).columns[0][0] == (B).columns[0][0] && (A).columns[1][0] == (B).columns[1][0] && (A).columns[2][0] == (B).columns[2][0] && (A).columns[3][0] == (B).columns[3][0] && \
+    (A).columns[0][1] == (B).columns[0][1] && (A).columns[1][1] == (B).columns[1][1] && (A).columns[2][1] == (B).columns[2][1] && (A).columns[3][1] == (B).columns[3][1] && \
+    (A).columns[0][2] == (B).columns[0][2] && (A).columns[1][2] == (B).columns[1][2] && (A).columns[2][2] == (B).columns[2][2] && (A).columns[3][2] == (B).columns[3][2] && \
+    (A).columns[0][3] == (B).columns[0][3] && (A).columns[1][3] == (B).columns[1][3] && (A).columns[2][3] == (B).columns[2][3] && (A).columns[3][3] == (B).columns[3][3])
 
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix-vector multiplication:

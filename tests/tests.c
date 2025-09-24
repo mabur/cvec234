@@ -112,6 +112,115 @@ void ASSERT_EQUAL_DOUBLE2x2(const char* description, double2x2 A, double2x2 B) {
     }
 }
 
+void ASSERT_EQUAL_FLOAT3x3(const char* description, float3x3 A, float3x3 B) {
+    global_assert_count++;
+    if (ARE_EQUAL_MATRIX3(A, B)) {
+        printf("%s ok\n", description);
+    } else {
+        printf("%s [%f,%f,%f;%f,%f,%f;%f,%f,%f] != [%f,%f,%f;%f,%f,%f;%f,%f,%f] bad\n", description,
+            A.columns[0][0], A.columns[1][0], A.columns[2][0],
+            A.columns[0][1], A.columns[1][1], A.columns[2][1],
+            A.columns[0][2], A.columns[1][2], A.columns[2][2],
+
+            B.columns[0][0], B.columns[1][0], B.columns[2][0],
+            B.columns[0][1], B.columns[1][1], B.columns[2][1],
+            B.columns[0][2], B.columns[1][2], B.columns[2][2]
+        );
+        global_assert_errors++;
+    }
+}
+
+void ASSERT_EQUAL_DOUBLE3x3(const char* description, double3x3 A, double3x3 B) {
+    global_assert_count++;
+    if (ARE_EQUAL_MATRIX3(A, B)) {
+        printf("%s ok\n", description);
+    } else {
+        printf(
+            "%s "
+            "[%f,%f,%f;"
+            "%f,%f,%f;"
+            "%f,%f,%f] "
+            "!= "
+            "[%f,%f,%f;"
+            "%f,%f,%f;"
+            "%f,%f,%f] bad\n",
+            description,
+
+            A.columns[0][0], A.columns[1][0], A.columns[2][0],
+            A.columns[0][1], A.columns[1][1], A.columns[2][1],
+            A.columns[0][2], A.columns[1][2], A.columns[2][2],
+
+            B.columns[0][0], B.columns[1][0], B.columns[2][0],
+            B.columns[0][1], B.columns[1][1], B.columns[2][1],
+            B.columns[0][2], B.columns[1][2], B.columns[2][2]
+        );
+        global_assert_errors++;
+    }
+}
+
+void ASSERT_EQUAL_FLOAT4x4(const char* description, float4x4 A, float4x4 B) {
+    global_assert_count++;
+    if (ARE_EQUAL_MATRIX4(A, B)) {
+        printf("%s ok\n", description);
+    } else {
+        printf(
+            "%s "
+            "[%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f] "
+            "!= "
+            "[%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f] bad\n",
+            description,
+
+            A.columns[0][0], A.columns[1][0], A.columns[2][0], A.columns[3][0],
+            A.columns[0][1], A.columns[1][1], A.columns[2][1], A.columns[3][1],
+            A.columns[0][2], A.columns[1][2], A.columns[2][2], A.columns[3][2],
+            A.columns[0][3], A.columns[1][3], A.columns[2][3], A.columns[3][3],
+
+            B.columns[0][0], B.columns[1][0], B.columns[2][0], B.columns[3][0],
+            B.columns[0][1], B.columns[1][1], B.columns[2][1], B.columns[3][1],
+            B.columns[0][2], B.columns[1][2], B.columns[2][2], B.columns[3][2],
+            B.columns[0][3], B.columns[1][3], B.columns[2][3], B.columns[3][3]
+        );
+        global_assert_errors++;
+    }
+}
+
+void ASSERT_EQUAL_DOUBLE4x4(const char* description, double4x4 A, double4x4 B) {
+    global_assert_count++;
+    if (ARE_EQUAL_MATRIX4(A, B)) {
+        printf("%s ok\n", description);
+    } else {
+        printf(
+            "%s "
+            "[%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f] "
+            "!= "
+            "[%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f;"
+            "%f,%f,%f,%f] bad\n",
+            description,
+
+            A.columns[0][0], A.columns[1][0], A.columns[2][0], A.columns[3][0],
+            A.columns[0][1], A.columns[1][1], A.columns[2][1], A.columns[3][1],
+            A.columns[0][2], A.columns[1][2], A.columns[2][2], A.columns[3][2],
+            A.columns[0][3], A.columns[1][3], A.columns[2][3], A.columns[3][3],
+
+            B.columns[0][0], B.columns[1][0], B.columns[2][0], B.columns[3][0],
+            B.columns[0][1], B.columns[1][1], B.columns[2][1], B.columns[3][1],
+            B.columns[0][2], B.columns[1][2], B.columns[2][2], B.columns[3][2],
+            B.columns[0][3], B.columns[1][3], B.columns[2][3], B.columns[3][3]
+        );
+        global_assert_errors++;
+    }
+}
 
 void summarize_tests() {
     if (global_assert_errors != 0) {
@@ -148,7 +257,12 @@ int main() {
     ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, (double4){1,2,3,4}), (double4){1,2,3,4});
 
     ASSERT_EQUAL_FLOAT2x2("mul_float2x2_float2x2", mul_float2x2_float2x2(If2, If2), If2);
-    ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_deouble2x2", mul_double2x2_double2x2(Id2, Id2), Id2);
+    ASSERT_EQUAL_FLOAT3x3("mul_float3x3_float3x3", mul_float3x3_float3x3(If3, If3), If3);
+    ASSERT_EQUAL_FLOAT4x4("mul_float4x4_float4x4", mul_float4x4_float4x4(If4, If4), If4);
+
+    ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_double2x2", mul_double2x2_double2x2(Id2, Id2), Id2);
+    ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3", mul_double3x3_double3x3(Id3, Id3), Id3);
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4", mul_double4x4_double4x4(Id4, Id4), Id4);
 
     summarize_tests();
     return 0;
