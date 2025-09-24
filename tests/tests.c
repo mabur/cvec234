@@ -99,6 +99,20 @@ void ASSERT_EQUAL_FLOAT2x2(const char* description, float2x2 A, float2x2 B) {
     }
 }
 
+void ASSERT_EQUAL_DOUBLE2x2(const char* description, double2x2 A, double2x2 B) {
+    global_assert_count++;
+    if (ARE_EQUAL_MATRIX2(A, B)) {
+        printf("%s ok\n", description);
+    } else {
+        printf("%s [%f,%f;%f,%f]!=[%f,%f;%f,%f] bad\n", description,
+            A.columns[0][0], A.columns[1][0], A.columns[0][1], A.columns[1][1],
+            B.columns[0][0], B.columns[1][0], B.columns[0][1], B.columns[1][1]
+        );
+        global_assert_errors++;
+    }
+}
+
+
 void summarize_tests() {
     if (global_assert_errors != 0) {
         printf("%d/%d test failed\n", global_assert_errors, global_assert_count);
@@ -134,7 +148,7 @@ int main() {
     ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, (double4){1,2,3,4}), (double4){1,2,3,4});
 
     ASSERT_EQUAL_FLOAT2x2("mul_float2x2_float2x2", mul_float2x2_float2x2(If2, If2), If2);
-
+    ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_deouble2x2", mul_double2x2_double2x2(Id2, Id2), Id2);
 
     summarize_tests();
     return 0;
