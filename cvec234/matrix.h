@@ -20,8 +20,8 @@ typedef struct double4x4 {double4 columns[4];} double4x4;
 // Matrix equality:
 
 #define ARE_EQUAL_MATRIX2(A, B) (\
-    (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && \
-    (A).column[0][1] == (B).column[0][1] && (A).column[1][1] == (B).column[1][1])
+    (A).columns[0][0] == (B).columns[0][0] && (A).columns[1][0] == (B).columns[1][0] && \
+    (A).columns[0][1] == (B).columns[0][1] && (A).columns[1][1] == (B).columns[1][1])
 
 #define ARE_EQUAL_MATRIX3(A, B) (\
     (A).column[0][0] == (B).column[0][0] && (A).column[1][0] == (B).column[1][0] && (A).column[2][0] == (B).column[2][0] && \
