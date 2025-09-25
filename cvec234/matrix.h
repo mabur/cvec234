@@ -16,6 +16,22 @@ typedef struct double2x2 {double2 columns[2];} double2x2;
 typedef struct double3x3 {double3 columns[3];} double3x3;
 typedef struct double4x4 {double4 columns[4];} double4x4;
 
+#define T_float2   __typeof__((float2){})
+#define T_float3   __typeof__((float3){})
+#define T_float4   __typeof__((float4){})
+
+#define T_double2  __typeof__((double2){})
+#define T_double3  __typeof__((double3){})
+#define T_double4  __typeof__((double4){})
+
+#define T_float2x2   __typeof__((float2x2){})
+#define T_float3x3   __typeof__((float3x3){})
+#define T_float4x4   __typeof__((float4x4){})
+
+#define T_double2x2  __typeof__((double2x2){})
+#define T_double3x3  __typeof__((double3x3){})
+#define T_double4x4  __typeof__((double4x4){})
+
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix equality:
 
@@ -325,13 +341,15 @@ static inline double4x4 INVERSE(double4x4 A) {return inverse_double4x4(A);}
 
 #else
 
+#define CVEC_BAD_SIG ((void)0)
 #define MUL(A, B) _Generic((A), \
-    float2x2:  _Generic((B), float2:  mul_float2x2_float2,  float2x2:  mul_float2x2_float2x2), \
-    float3x3:  _Generic((B), float3:  mul_float3x3_float3,  float3x3:  mul_float3x3_float3x3), \
-    float4x4:  _Generic((B), float4:  mul_float4x4_float4,  float4x4:  mul_float4x4_float4x4), \
-    double2x2: _Generic((B), double2: mul_double2x2_double2, double2x2: mul_double2x2_double2x2), \
-    double3x3: _Generic((B), double3: mul_double3x3_double3, double3x3: mul_double3x3_double3x3), \
-    double4x4: _Generic((B), double4: mul_double4x4_double4, double4x4: mul_double4x4_double4x4) \
+T_float2x2:  _Generic((B), T_float2:  mul_float2x2_float2,  default: CVEC_BAD_SIG), \
+T_float3x3:  _Generic((B), T_float3:  mul_float3x3_float3,  default: CVEC_BAD_SIG), \
+T_float4x4:  _Generic((B), T_float4:  mul_float4x4_float4,  default: CVEC_BAD_SIG), \
+T_double2x2: _Generic((B), T_double2: mul_double2x2_double2, default: CVEC_BAD_SIG), \
+T_double3x3: _Generic((B), T_double3: mul_double3x3_double3, default: CVEC_BAD_SIG), \
+T_double4x4: _Generic((B), T_double4: mul_double4x4_double4, default: CVEC_BAD_SIG), \
+default: CVEC_BAD_SIG \
 )(A, B)
 
 #define INVERSE(A) _Generic((A), \
