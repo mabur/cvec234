@@ -285,6 +285,11 @@ int main() {
     ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3", inverse_double3x3(Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4", inverse_double4x4(Id4), Id4);
 
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 X", inverse_double4x4(ScaleUpXd4), ScaleDownXd4);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Y", inverse_double4x4(ScaleUpYd4), ScaleDownYd4);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Z", inverse_double4x4(ScaleUpZd4), ScaleDownZd4);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 W", inverse_double4x4(ScaleUpWd4), ScaleDownWd4);
+
     ASSERT_EQUAL_FLOAT2x2("INVERSE float 2x2", INVERSE(If2), If2);
     ASSERT_EQUAL_FLOAT3x3("INVERSE float 3x3", INVERSE(If3), If3);
     ASSERT_EQUAL_FLOAT4x4("INVERSE float 4x4", INVERSE(If4), If4);
