@@ -256,6 +256,11 @@ int main() {
     ASSERT_EQUAL_DOUBLE3("MUL double3x3 double3", MUL(Id3, Vd3), Vd3);
     ASSERT_EQUAL_DOUBLE4("MUL double4x4 double4", MUL(Id4, Vd4), Vd4);
 
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4 X", mul_double4x4_double4(ScaleUpXd4, (double4){1,2,3,4}), (double4){2,2,3,4});
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4 Y", mul_double4x4_double4(ScaleUpYd4, (double4){1,2,3,4}), (double4){1,4,3,4});
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4 Z", mul_double4x4_double4(ScaleUpZd4, (double4){1,2,3,4}), (double4){1,2,6,4});
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4 W", mul_double4x4_double4(ScaleUpWd4, (double4){1,2,3,4}), (double4){1,2,3,8});
+
     ASSERT_EQUAL_FLOAT2x2("mul_float2x2_float2x2", mul_float2x2_float2x2(If2, If2), If2);
     ASSERT_EQUAL_FLOAT3x3("mul_float3x3_float3x3", mul_float3x3_float3x3(If3, If3), If3);
     ASSERT_EQUAL_FLOAT4x4("mul_float4x4_float4x4", mul_float4x4_float4x4(If4, If4), If4);
