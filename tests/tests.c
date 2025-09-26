@@ -205,12 +205,20 @@ void summarize_tests() {
 }
 
 int main() {
-    T_float2x2 If2 = {.columns={{1,0},{0,1}}};
+    float2x2 If2 = {.columns={{1,0},{0,1}}};
     double2x2 Id2 = {.columns={{1,0},{0,1}}};
     float3x3 If3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
     double3x3 Id3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
     float4x4 If4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
     double4x4 Id4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+
+    float2 Vf2 = {1,2};
+    float3 Vf3 = {1,2,3};
+    float4 Vf4 = {1,2,3,4};
+
+    double2 Vd2 = {1,2};
+    double3 Vd3 = {1,2,3};
+    double4 Vd4 = {1,2,3,4};
 
     ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
     ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
@@ -222,19 +230,15 @@ int main() {
     ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
     ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
 
-    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", mul_float2x2_float2(If2, (float2){1,2}), (float2){1,2});
-    ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3(If3, (float3){1,2,3}), (float3){1,2,3});
-    ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4(If4, (float4){1,2,3,4}), (float4){1,2,3,4});
+    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", mul_float2x2_float2(If2, Vf2), Vf2);
+    ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3(If3, Vf3), Vf3);
+    ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4(If4, Vf4), Vf4);
 
-    //T_float2x2 If2 = {.columns={{1,0},{0,1}}};
-    T_float2 v2 = {1,2};
-    _Static_assert(_Generic((If2), T_float2x2: 1, default: 0), "If2 is not T_float2x2");
-    _Static_assert(_Generic((v2), T_float2: 1, default: 0), "v2 is not T_float2");
-    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", MUL(If2, v2), v2);
+    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", MUL(If2, Vf2), Vf2);
 
-    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2(Id2, (double2){1,2}), (double2){1,2});
-    ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3(Id3, (double3){1,2,3}), (double3){1,2,3});
-    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, (double4){1,2,3,4}), (double4){1,2,3,4});
+    ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2(Id2, Vd2), Vd2);
+    ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3(Id3, Vd3), Vd3);
+    ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, Vd4), Vd4);
 
     ASSERT_EQUAL_FLOAT2x2("mul_float2x2_float2x2", mul_float2x2_float2x2(If2, If2), If2);
     ASSERT_EQUAL_FLOAT3x3("mul_float3x3_float3x3", mul_float3x3_float3x3(If3, If3), If3);
