@@ -205,13 +205,6 @@ void summarize_tests() {
 }
 
 int main() {
-    float2x2 If2 = {.columns={{1,0},{0,1}}};
-    double2x2 Id2 = {.columns={{1,0},{0,1}}};
-    float3x3 If3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
-    double3x3 Id3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
-    float4x4 If4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
-    double4x4 Id4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
-
     float2 Vf2 = {1,2};
     float3 Vf3 = {1,2,3};
     float4 Vf4 = {1,2,3,4};
@@ -219,6 +212,23 @@ int main() {
     double2 Vd2 = {1,2};
     double3 Vd3 = {1,2,3};
     double4 Vd4 = {1,2,3,4};
+
+    float2x2 If2 = {.columns={{1,0},{0,1}}};
+    double2x2 Id2 = {.columns={{1,0},{0,1}}};
+    float3x3 If3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    double3x3 Id3 = {.columns={{1,0,0},{0,1,0},{0,0,1}}};
+    float4x4 If4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 Id4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+
+    double4x4 ScaleUpXd4 = {.columns={{2,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 ScaleUpYd4 = {.columns={{1,0,0,0},{0,2,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 ScaleUpZd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,2,0},{0,0,0,1}}};
+    double4x4 ScaleUpWd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,2}}};
+
+    double4x4 ScaleDownXd4 = {.columns={{.5,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 ScaleDownYd4 = {.columns={{1,0,0,0},{0,.5,0,0},{0,0,1,0},{0,0,0,1}}};
+    double4x4 ScaleDownZd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,.5,0},{0,0,0,1}}};
+    double4x4 ScaleDownWd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,.5}}};
 
     ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
     ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
@@ -257,6 +267,11 @@ int main() {
     ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_double2x2", mul_double2x2_double2x2(Id2, Id2), Id2);
     ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3", mul_double3x3_double3x3(Id3, Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4", mul_double4x4_double4x4(Id4, Id4), Id4);
+
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 X", mul_double4x4_double4x4(ScaleUpXd4, ScaleDownXd4), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 Y", mul_double4x4_double4x4(ScaleUpYd4, ScaleDownYd4), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 Z", mul_double4x4_double4x4(ScaleUpZd4, ScaleDownZd4), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 W", mul_double4x4_double4x4(ScaleUpWd4, ScaleDownWd4), Id4);
 
     ASSERT_EQUAL_DOUBLE2x2("MUL double2x2 double2x2", MUL(Id2, Id2), Id2);
     ASSERT_EQUAL_DOUBLE3x3("MUL double3x3 double3x3", MUL(Id3, Id3), Id3);
