@@ -270,26 +270,23 @@ static inline double3x3 inverse_double3x3(double3x3 A) {
     auto C33 =  (a00*(a11*a22 - a12*a21) - a01*(a10*a22 - a12*a20) + a02*(a10*a21 - a11*a20)); \
     \
     auto det = a00*C00 + a01*C01 + a02*C02 + a03*C03; \
-    auto inv_det = (1) / det; \
+    auto inv_det = 1 / det; \
     \
     (out).columns[0][0] = C00; \
-    (out).columns[1][0] = C01; \
-    (out).columns[2][0] = C02; \
-    (out).columns[3][0] = C03; \
-    \
     (out).columns[0][1] = C10; \
-    (out).columns[1][1] = C11; \
-    (out).columns[2][1] = C12; \
-    (out).columns[3][1] = C13; \
-    \
     (out).columns[0][2] = C20; \
-    (out).columns[1][2] = C21; \
-    (out).columns[2][2] = C22; \
-    (out).columns[3][2] = C23; \
-    \
     (out).columns[0][3] = C30; \
+    (out).columns[1][0] = C01; \
+    (out).columns[1][1] = C11; \
+    (out).columns[1][2] = C21; \
     (out).columns[1][3] = C31; \
+    (out).columns[2][0] = C02; \
+    (out).columns[2][1] = C12; \
+    (out).columns[2][2] = C22; \
     (out).columns[2][3] = C32; \
+    (out).columns[3][0] = C03; \
+    (out).columns[3][1] = C13; \
+    (out).columns[3][2] = C23; \
     (out).columns[3][3] = C33; \
     \
     (out).columns[0] *= inv_det; \
