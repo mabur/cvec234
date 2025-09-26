@@ -234,19 +234,33 @@ int main() {
     ASSERT_EQUAL_FLOAT3("mul_float3x3_float3", mul_float3x3_float3(If3, Vf3), Vf3);
     ASSERT_EQUAL_FLOAT4("mul_float4x4_float4", mul_float4x4_float4(If4, Vf4), Vf4);
 
-    ASSERT_EQUAL_FLOAT2("mul_float2x2_float2", MUL(If2, Vf2), Vf2);
+    ASSERT_EQUAL_FLOAT2("MUL float2x2 float2", MUL(If2, Vf2), Vf2);
+    ASSERT_EQUAL_FLOAT3("MUL float3x3 float3", MUL(If3, Vf3), Vf3);
+    ASSERT_EQUAL_FLOAT4("MUL float4x4 float4", MUL(If4, Vf4), Vf4);
 
     ASSERT_EQUAL_DOUBLE2("mul_double2x2_double2", mul_double2x2_double2(Id2, Vd2), Vd2);
     ASSERT_EQUAL_DOUBLE3("mul_double3x3_double3", mul_double3x3_double3(Id3, Vd3), Vd3);
     ASSERT_EQUAL_DOUBLE4("mul_double4x4_double4", mul_double4x4_double4(Id4, Vd4), Vd4);
 
+    ASSERT_EQUAL_DOUBLE2("MUL double2x2 double2", MUL(Id2, Vd2), Vd2);
+    ASSERT_EQUAL_DOUBLE3("MUL double3x3 double3", MUL(Id3, Vd3), Vd3);
+    ASSERT_EQUAL_DOUBLE4("MUL double4x4 double4", MUL(Id4, Vd4), Vd4);
+
     ASSERT_EQUAL_FLOAT2x2("mul_float2x2_float2x2", mul_float2x2_float2x2(If2, If2), If2);
     ASSERT_EQUAL_FLOAT3x3("mul_float3x3_float3x3", mul_float3x3_float3x3(If3, If3), If3);
     ASSERT_EQUAL_FLOAT4x4("mul_float4x4_float4x4", mul_float4x4_float4x4(If4, If4), If4);
 
+    ASSERT_EQUAL_FLOAT2x2("MUL float2x2 float2x2", MUL(If2, If2), If2);
+    ASSERT_EQUAL_FLOAT3x3("MUL float3x3 float3x3", MUL(If3, If3), If3);
+    ASSERT_EQUAL_FLOAT4x4("MUL float4x4 float4x4", MUL(If4, If4), If4);
+
     ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_double2x2", mul_double2x2_double2x2(Id2, Id2), Id2);
     ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3", mul_double3x3_double3x3(Id3, Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4", mul_double4x4_double4x4(Id4, Id4), Id4);
+
+    ASSERT_EQUAL_DOUBLE2x2("MUL double2x2 double2x2", MUL(Id2, Id2), Id2);
+    ASSERT_EQUAL_DOUBLE3x3("MUL double3x3 double3x3", MUL(Id3, Id3), Id3);
+    ASSERT_EQUAL_DOUBLE4x4("MUL double4x4 double4x4", MUL(Id4, Id4), Id4);
 
     ASSERT_EQUAL_FLOAT2x2("inverse_float2x2", inverse_float2x2(If2), If2);
     ASSERT_EQUAL_FLOAT3x3("inverse_float3x3", inverse_float3x3(If3), If3);

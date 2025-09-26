@@ -343,12 +343,12 @@ static inline double4x4 INVERSE(double4x4 A) {return inverse_double4x4(A);}
 
 #define CVEC_BAD_SIG ((void)0)
 #define MUL(A, B) _Generic((A), \
-T_float2x2:  _Generic((B), T_float2:  mul_float2x2_float2,  default: CVEC_BAD_SIG), \
-T_float3x3:  _Generic((B), T_float3:  mul_float3x3_float3,  default: CVEC_BAD_SIG), \
-T_float4x4:  _Generic((B), T_float4:  mul_float4x4_float4,  default: CVEC_BAD_SIG), \
-T_double2x2: _Generic((B), T_double2: mul_double2x2_double2, default: CVEC_BAD_SIG), \
-T_double3x3: _Generic((B), T_double3: mul_double3x3_double3, default: CVEC_BAD_SIG), \
-T_double4x4: _Generic((B), T_double4: mul_double4x4_double4, default: CVEC_BAD_SIG), \
+T_float2x2:  _Generic((B), T_float2:  mul_float2x2_float2, T_float2x2: mul_float2x2_float2x2, default: CVEC_BAD_SIG), \
+T_float3x3:  _Generic((B), T_float3:  mul_float3x3_float3, T_float3x3: mul_float3x3_float3x3, default: CVEC_BAD_SIG), \
+T_float4x4:  _Generic((B), T_float4:  mul_float4x4_float4, T_float4x4: mul_float4x4_float4x4, default: CVEC_BAD_SIG), \
+T_double2x2: _Generic((B), T_double2: mul_double2x2_double2, T_double2x2: mul_double2x2_double2x2, default: CVEC_BAD_SIG), \
+T_double3x3: _Generic((B), T_double3: mul_double3x3_double3, T_double3x3: mul_double3x3_double3x3, default: CVEC_BAD_SIG), \
+T_double4x4: _Generic((B), T_double4: mul_double4x4_double4, T_double4x4: mul_double4x4_double4x4, default: CVEC_BAD_SIG),\
 default: CVEC_BAD_SIG \
 )(A, B)
 
