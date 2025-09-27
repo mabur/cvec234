@@ -52,6 +52,7 @@ double4x4 rotate_around_y_double4x4(double angle) {
     return R;
 }
 
+static inline
 float4x4 rotate_around_z_float4x4(float angle) {
     float c = cosf(angle);
     float s = sinf(angle);
@@ -63,6 +64,7 @@ float4x4 rotate_around_z_float4x4(float angle) {
     return R;
 }
 
+static inline
 double4x4 rotate_around_z_double4x4(double angle) {
     double c = cos(angle);
     double s = sin(angle);
