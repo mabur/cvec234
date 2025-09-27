@@ -230,6 +230,9 @@ int main() {
     double4x4 ScaleDownZd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,.5,0},{0,0,0,1}}};
     double4x4 ScaleDownWd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,.5}}};
 
+    double4x4 Td4_forward = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{2,3,4,1}}};
+    double4x4 Td4_backward = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{-2,-3,-4,1}}};
+
     ASSERT_EQUAL_INT("DOT2", DOT2(((int2){1,2}), ((int2){3,4})), 11);
     ASSERT_EQUAL_INT("DOT3", DOT3(((int3){1,2,3}), ((int3){4,5,6})), 32);
     ASSERT_EQUAL_INT("DOT4", DOT4(((int3){1,2,3,4}), ((int3){5,6,7,8})), 70);
@@ -278,6 +281,9 @@ int main() {
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 Z", mul_double4x4_double4x4(ScaleUpZd4, ScaleDownZd4), Id4);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 W", mul_double4x4_double4x4(ScaleUpWd4, ScaleDownWd4), Id4);
 
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 translation", mul_double4x4_double4x4(Td4_forward, Td4_backward), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 translation", mul_double4x4_double4x4(Td4_backward, Td4_forward), Id4);
+
     ASSERT_EQUAL_DOUBLE2x2("MUL double2x2 double2x2", MUL(Id2, Id2), Id2);
     ASSERT_EQUAL_DOUBLE3x3("MUL double3x3 double3x3", MUL(Id3, Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("MUL double4x4 double4x4", MUL(Id4, Id4), Id4);
@@ -294,6 +300,8 @@ int main() {
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Y", inverse_double4x4(ScaleUpYd4), ScaleDownYd4);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Z", inverse_double4x4(ScaleUpZd4), ScaleDownZd4);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 W", inverse_double4x4(ScaleUpWd4), ScaleDownWd4);
+
+    //ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation", inverse_double4x4(translation_in), translation_out);
 
     ASSERT_EQUAL_FLOAT2x2("INVERSE float 2x2", INVERSE(If2), If2);
     ASSERT_EQUAL_FLOAT3x3("INVERSE float 3x3", INVERSE(If3), If3);
