@@ -230,6 +230,12 @@ int main() {
     double4x4 ScaleDownZd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,.5,0},{0,0,0,1}}};
     double4x4 ScaleDownWd4 = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,.5}}};
 
+    double2x2 Td2_forward = {.columns={{1,0},{2,1}}};
+    double2x2 Td2_backward = {.columns={{1,0},{-2,1}}};
+
+    double3x3 Td3_forward = {.columns={{1,0,0},{0,1,0},{2,3,1}}};
+    double3x3 Td3_backward = {.columns={{1,0,0},{0,1,0},{-2,-3,1}}};
+
     double4x4 Td4_forward = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{2,3,4,1}}};
     double4x4 Td4_backward = {.columns={{1,0,0,0},{0,1,0,0},{0,0,1,0},{-2,-3,-4,1}}};
 
@@ -281,6 +287,12 @@ int main() {
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 Z", mul_double4x4_double4x4(ScaleUpZd4, ScaleDownZd4), Id4);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 W", mul_double4x4_double4x4(ScaleUpWd4, ScaleDownWd4), Id4);
 
+    ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_double2x2 translation", mul_double2x2_double2x2(Td2_forward, Td2_backward), Id2);
+    ASSERT_EQUAL_DOUBLE2x2("mul_double2x2_double2x2 translation", mul_double2x2_double2x2(Td2_backward, Td2_forward), Id2);
+
+    ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3 translation", mul_double3x3_double3x3(Td3_forward, Td3_backward), Id3);
+    ASSERT_EQUAL_DOUBLE3x3("mul_double3x3_double3x3 translation", mul_double3x3_double3x3(Td3_backward, Td3_forward), Id3);
+
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 translation", mul_double4x4_double4x4(Td4_forward, Td4_backward), Id4);
     ASSERT_EQUAL_DOUBLE4x4("mul_double4x4_double4x4 translation", mul_double4x4_double4x4(Td4_backward, Td4_forward), Id4);
 
@@ -300,6 +312,12 @@ int main() {
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Y", inverse_double4x4(ScaleUpYd4), ScaleDownYd4);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Z", inverse_double4x4(ScaleUpZd4), ScaleDownZd4);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 W", inverse_double4x4(ScaleUpWd4), ScaleDownWd4);
+
+    ASSERT_EQUAL_DOUBLE2x2("inverse_double2x2 translation 1", inverse_double2x2(Td2_forward), Td2_backward);
+    ASSERT_EQUAL_DOUBLE2x2("inverse_double2x2 translation 2", inverse_double2x2(Td2_backward), Td2_forward);
+
+    //ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 1", inverse_double3x3(Td3_forward), Td3_backward);
+    //ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 2", inverse_double3x3(Td3_backward), Td3_forward);
 
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 1", inverse_double4x4(Td4_forward), Td4_backward);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 2", inverse_double4x4(Td4_backward), Td4_forward);

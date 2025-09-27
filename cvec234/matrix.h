@@ -190,32 +190,25 @@ static inline double2x2 inverse_double2x2(double2x2 A) {
     auto C00 =  (a11 * a22 - a12 * a21); \
     auto C01 = -(a10 * a22 - a12 * a20); \
     auto C02 =  (a10 * a21 - a11 * a20); \
-    \
     auto C10 = -(a01 * a22 - a02 * a21); \
     auto C11 =  (a00 * a22 - a02 * a20); \
     auto C12 = -(a00 * a21 - a01 * a20); \
-    \
     auto C20 =  (a01 * a12 - a02 * a11); \
     auto C21 = -(a00 * a12 - a02 * a10); \
     auto C22 =  (a00 * a11 - a01 * a10); \
     \
-    auto det = a00 * C00 + a01 * C01 + a02 * C02; \
+    auto det = a00*C00 + a01*C01 + a02*C02; \
     auto inv_det = 1 / det; \
     \
-    (out).columns[0][0] = C00; \
-    (out).columns[0][1] = C10; \
-    (out).columns[0][2] = C20; \
-    (out).columns[1][0] = C01; \
-    (out).columns[1][1] = C11; \
-    (out).columns[1][2] = C21; \
-    (out).columns[2][0] = C02; \
-    (out).columns[2][1] = C12; \
-    (out).columns[2][2] = C22; \
+    (out).columns[0][0] = C00; (out).columns[0][1] = C10; (out).columns[0][2] = C20; \
+    (out).columns[1][0] = C01; (out).columns[1][1] = C11; (out).columns[1][2] = C21; \
+    (out).columns[2][0] = C02; (out).columns[2][1] = C12; (out).columns[2][2] = C22; \
     \
     (out).columns[0] *= inv_det; \
     (out).columns[1] *= inv_det; \
     (out).columns[2] *= inv_det; \
 } while (0)
+
 
 static inline float3x3 inverse_float3x3(float3x3 A) {
     float3x3 result;
