@@ -301,7 +301,8 @@ int main() {
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 Z", inverse_double4x4(ScaleUpZd4), ScaleDownZd4);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 W", inverse_double4x4(ScaleUpWd4), ScaleDownWd4);
 
-    //ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation", inverse_double4x4(translation_in), translation_out);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 1", inverse_double4x4(Td4_forward), Td4_backward);
+    ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 2", inverse_double4x4(Td4_backward), Td4_forward);
 
     ASSERT_EQUAL_FLOAT2x2("INVERSE float 2x2", INVERSE(If2), If2);
     ASSERT_EQUAL_FLOAT3x3("INVERSE float 3x3", INVERSE(If3), If3);

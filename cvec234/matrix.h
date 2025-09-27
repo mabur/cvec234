@@ -271,20 +271,20 @@ static inline double3x3 inverse_double3x3(double3x3 A) {
     auto inv_det = 1 / det; \
     \
     (out).columns[0][0] = C00; \
-    (out).columns[0][1] = C10; \
-    (out).columns[0][2] = C20; \
-    (out).columns[0][3] = C30; \
-    (out).columns[1][0] = C01; \
+    (out).columns[0][1] = C01; \
+    (out).columns[0][2] = C02; \
+    (out).columns[0][3] = C03; \
+    (out).columns[1][0] = C10; \
     (out).columns[1][1] = C11; \
-    (out).columns[1][2] = C21; \
-    (out).columns[1][3] = C31; \
-    (out).columns[2][0] = C02; \
-    (out).columns[2][1] = C12; \
+    (out).columns[1][2] = C12; \
+    (out).columns[1][3] = C13; \
+    (out).columns[2][0] = C20; \
+    (out).columns[2][1] = C21; \
     (out).columns[2][2] = C22; \
-    (out).columns[2][3] = C32; \
-    (out).columns[3][0] = C03; \
-    (out).columns[3][1] = C13; \
-    (out).columns[3][2] = C23; \
+    (out).columns[2][3] = C23; \
+    (out).columns[3][0] = C30; \
+    (out).columns[3][1] = C31; \
+    (out).columns[3][2] = C32; \
     (out).columns[3][3] = C33; \
     \
     (out).columns[0] *= inv_det; \
