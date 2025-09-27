@@ -99,15 +99,15 @@ double4x4 translate_double4x4(double x, double y, double z) {
 
 #ifdef __cplusplus
 
-float4x4 rotate_around_x_4(float angle) {return rotate_around_x_float4x4(angle);}
-float4x4 rotate_around_y_4(float angle) {return rotate_around_y_float4x4(angle);}
-float4x4 rotate_around_z_4(float angle) {return rotate_around_z_float4x4(angle);}
-float4x4 translate_4(float x, float y, float z) {return translate_float4x4(x, y, z);}
+inline float4x4 rotate_around_x_4(float angle) {return rotate_around_x_float4x4(angle);}
+inline float4x4 rotate_around_y_4(float angle) {return rotate_around_y_float4x4(angle);}
+inline float4x4 rotate_around_z_4(float angle) {return rotate_around_z_float4x4(angle);}
+inline float4x4 translate_4(float x, float y, float z) {return translate_float4x4(x, y, z);}
 
-double4x4 rotate_around_x_4(double angle) {return rotate_around_x_double4x4(angle);}
-double4x4 rotate_around_y_4(double angle) {return rotate_around_y_double4x4(angle);}
-double4x4 rotate_around_z_4(double angle) {return rotate_around_z_double4x4(angle);}
-double4x4 translate_4(double x, double y, double z) {return translate_double4x4(x, y, z);}
+inline double4x4 rotate_around_x_4(double angle) {return rotate_around_x_double4x4(angle);}
+inline double4x4 rotate_around_y_4(double angle) {return rotate_around_y_double4x4(angle);}
+inline double4x4 rotate_around_z_4(double angle) {return rotate_around_z_double4x4(angle);}
+inline double4x4 translate_4(double x, double y, double z) {return translate_double4x4(x, y, z);}
 
 #else
 
