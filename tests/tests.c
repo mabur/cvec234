@@ -330,6 +330,16 @@ int main() {
     ASSERT_EQUAL_DOUBLE3x3("INVERSE double 3x3", INVERSE(Id3), Id3);
     ASSERT_EQUAL_DOUBLE4x4("INVERSE double 4x4", INVERSE(Id4), Id4);
 
+    ASSERT_EQUAL_FLOAT4x4("rotate_around_x_4 float", rotate_around_x_4(0.f), If4);
+    ASSERT_EQUAL_FLOAT4x4("rotate_around_y_4 float", rotate_around_y_4(0.f), If4);
+    ASSERT_EQUAL_FLOAT4x4("rotate_around_z_4 float", rotate_around_z_4(0.f), If4);
+    ASSERT_EQUAL_FLOAT4x4("translate_4 float", translate_4(0.f, 0.f, 0.f), If4);
+
+    ASSERT_EQUAL_DOUBLE4x4("rotate_around_x_4 double", rotate_around_x_4(0.0), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("rotate_around_y_4 double", rotate_around_y_4(0.0), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("rotate_around_z_4 double", rotate_around_z_4(0.0), Id4);
+    ASSERT_EQUAL_DOUBLE4x4("translate_4 double", translate_4(0.0, 0.0, 0.0), Id4);
+
     summarize_tests();
     return 0;
 }

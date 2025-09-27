@@ -4,6 +4,7 @@
 #include "matrix_core.h"
 #include "matrix_inverse.h"
 #include "matrix_multiplication.h"
+#include "matrix_transformation.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix equality:
