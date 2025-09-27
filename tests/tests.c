@@ -316,8 +316,8 @@ int main() {
     ASSERT_EQUAL_DOUBLE2x2("inverse_double2x2 translation 1", inverse_double2x2(Td2_forward), Td2_backward);
     ASSERT_EQUAL_DOUBLE2x2("inverse_double2x2 translation 2", inverse_double2x2(Td2_backward), Td2_forward);
 
-    //ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 1", inverse_double3x3(Td3_forward), Td3_backward);
-    //ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 2", inverse_double3x3(Td3_backward), Td3_forward);
+    ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 1", inverse_double3x3(Td3_forward), Td3_backward);
+    ASSERT_EQUAL_DOUBLE3x3("inverse_double3x3 translation 2", inverse_double3x3(Td3_backward), Td3_forward);
 
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 1", inverse_double4x4(Td4_forward), Td4_backward);
     ASSERT_EQUAL_DOUBLE4x4("inverse_double4x4 translation 2", inverse_double4x4(Td4_backward), Td4_forward);
