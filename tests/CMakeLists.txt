@@ -5,6 +5,7 @@ file(GLOB cvec234 "../carma/*.c")
 
 add_executable(tests tests.c ${cvec234})
 target_compile_features(tests PRIVATE c_std_23)
+target_compile_options(tests PRIVATE -mavx)
 target_include_directories(tests PRIVATE ..)
 
 # Add warning flags for GCC
