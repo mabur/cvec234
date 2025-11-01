@@ -28,6 +28,16 @@ void ASSERT_EQUAL_INT(const char* description, int a, int b) {
     }
 }
 
+void ASSERT_EQUAL_FLOAT(const char* description, float a, float b) {
+    global_assert_count++;
+    if (a == b) {
+        printf("%s ok\n", (description));
+    } else {
+        printf("%s %f!=%f bad\n", (description), (a), (b));
+        global_assert_errors++;
+    }
+}
+
 void ASSERT_EQUAL_FLOAT2(const char* description, float2 a, float2 b) {
     global_assert_count++;
     if (ARE_EQUAL_VECTOR2(a, b)) {
@@ -245,6 +255,9 @@ int main() {
 
     ASSERT_EQUAL_INT("SQUARED_NORM2", SQUARED_NORM2(((int2){1,2})), 5);
     ASSERT_EQUAL_INT("SQUARED_NORM3", SQUARED_NORM3(((int3){1,2,3})), 14);
+
+    ASSERT_EQUAL_FLOAT("NORM2", NORM2(((float2){3,4})), 5);
+    ASSERT_EQUAL_FLOAT("NORM3", NORM3(((float3){1,2,2})), 3);
 
     ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
     ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
