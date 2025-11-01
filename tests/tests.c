@@ -259,6 +259,9 @@ int main() {
     ASSERT_EQUAL_FLOAT("NORM2", NORM2(((float2){3,4})), 5);
     ASSERT_EQUAL_FLOAT("NORM3", NORM3(((float3){1,2,2})), 3);
 
+    ASSERT_EQUAL_DOUBLE2("NORMALIZED2", NORMALIZED2(((double2){0,2})), ((double2){0,1}));
+    ASSERT_EQUAL_DOUBLE3("NORMALIZED3", NORMALIZED3(((double3){0,0,2})), ((double3){0,0,1}));
+
     ASSERT_EQUAL_INT("SQUARED_DISTANCE2", SQUARED_DISTANCE2(((int2){1,2}), ((int2){3,4})), 8);
     ASSERT_EQUAL_INT("SQUARED_DISTANCE3", SQUARED_DISTANCE3(((int3){1,2,3}), ((int3){4,5,6})), 27);
 

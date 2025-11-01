@@ -88,6 +88,9 @@ typedef VecTemp<double, 4> double4;
 #define NORM2(a) (sqrt(SQUARED_NORM2(a)))
 #define NORM3(a) (sqrt(SQUARED_NORM3(a)))
 
+#define NORMALIZED2(a) (a / NORM2(a))
+#define NORMALIZED3(a) (a / NORM3(a))
+
 #define SQUARED_DISTANCE2(a, b) SQUARED_NORM2((a) - (b))
 #define SQUARED_DISTANCE3(a, b) SQUARED_NORM3((a) - (b))
 
