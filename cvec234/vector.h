@@ -4,6 +4,10 @@
 
 #if defined(__clang__) || defined(__GNUC__)
 
+typedef unsigned char byte2 __attribute__((vector_size(2)));
+typedef unsigned char byte3 __attribute__((vector_size(4))); // Including padding
+typedef unsigned char byte4 __attribute__((vector_size(4)));
+
 typedef int int2 __attribute__((vector_size(8)));
 typedef int int3 __attribute__((vector_size(16))); // Including padding
 typedef int int4 __attribute__((vector_size(16)));
@@ -61,6 +65,10 @@ struct VecTemp {
     // Unary minus
     friend VecTemp operator-(const VecTemp& v) {return VecTemp{} -= v;}
 };
+
+typedef VecTemp<unsignd char, 2> byte2;
+typedef VecTemp<unsignd char, 3> byte3;
+typedef VecTemp<unsignd char, 4> byte4;
 
 typedef VecTemp<int, 2> int2;
 typedef VecTemp<int, 3> int3;
