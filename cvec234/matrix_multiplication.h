@@ -3,26 +3,26 @@
 #include "matrix_core.h"
 
 #if defined(__GNUC__) || defined(__clang__)
-    #define TYPE_OF_EXPRESSION(x) __typeof__(x)
+    #define CVEC_TYPE_OF_EXPRESSION(x) __typeof__(x)
 #elif defined(__cplusplus)
-    #define TYPE_OF_EXPRESSION(x) decltype(x)
+    #define CVEC_TYPE_OF_EXPRESSION(x) decltype(x)
 #endif
 
-#define T_float2 TYPE_OF_EXPRESSION((float2){})
-#define T_float3 TYPE_OF_EXPRESSION((float3){})
-#define T_float4 TYPE_OF_EXPRESSION((float4){})
+#define T_float2 CVEC_TYPE_OF_EXPRESSION((float2){})
+#define T_float3 CVEC_TYPE_OF_EXPRESSION((float3){})
+#define T_float4 CVEC_TYPE_OF_EXPRESSION((float4){})
 
-#define T_double2 TYPE_OF_EXPRESSION((double2){})
-#define T_double3 TYPE_OF_EXPRESSION((double3){})
-#define T_double4 TYPE_OF_EXPRESSION((double4){})
+#define T_double2 CVEC_TYPE_OF_EXPRESSION((double2){})
+#define T_double3 CVEC_TYPE_OF_EXPRESSION((double3){})
+#define T_double4 CVEC_TYPE_OF_EXPRESSION((double4){})
 
-#define T_float2x2 TYPE_OF_EXPRESSION((float2x2){})
-#define T_float3x3 TYPE_OF_EXPRESSION((float3x3){})
-#define T_float4x4 TYPE_OF_EXPRESSION((float4x4){})
+#define T_float2x2 CVEC_TYPE_OF_EXPRESSION((float2x2){})
+#define T_float3x3 CVEC_TYPE_OF_EXPRESSION((float3x3){})
+#define T_float4x4 CVEC_TYPE_OF_EXPRESSION((float4x4){})
 
-#define T_double2x2 TYPE_OF_EXPRESSION((double2x2){})
-#define T_double3x3 TYPE_OF_EXPRESSION((double3x3){})
-#define T_double4x4 TYPE_OF_EXPRESSION((double4x4){})
+#define T_double2x2 CVEC_TYPE_OF_EXPRESSION((double2x2){})
+#define T_double3x3 CVEC_TYPE_OF_EXPRESSION((double3x3){})
+#define T_double4x4 CVEC_TYPE_OF_EXPRESSION((double4x4){})
 
 ////////////////////////////////////////////////////////////////////////////////
 // Matrix-vector multiplication:
