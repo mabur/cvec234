@@ -60,7 +60,7 @@ double c = NORM2(a); // Norm in the first two dimensions, giving 5.0
 
 * `SQUARED_NORM2`, `SQUARED_NORM3` calculates the squared Euclidean norm of a vector.
 
-* `NORMALIZED2`, `NORMALIZED2` calculates a vector with the same dimension but with a norma of 1 like:
+* `NORMALIZED2`, `NORMALIZED3` calculates a vector with the same dimension but with a norm of 1 like:
 ```clike
 double2 a = {0.0, 10.0};
 double2 b = NORMALIZED2(a); // Gives {0, 1}
