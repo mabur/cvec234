@@ -1,6 +1,15 @@
 ## Introduction
 
-cvec234 is a lightweight C library that provides small (2D,3D,4D) vectors and matrices, which is useful for computer graphics and computer vision.
+Cvec234 is a lightweight C library that provides small vectors and matrices in 2, 3, 4 dimensions. It targets applications like:
+* Game programming
+* Computer graphics
+* Computer vision
+
+where vectors and matrices are used to describe:
+* RGBA colors
+* Cartesian points and directions
+* Homogeneous points and directions
+* Transformations
 
 ## Example
 
