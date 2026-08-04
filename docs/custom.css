@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+
+body {
+    background-color: #FDF6E3;
+    font-family: "Sorts Mill Goudy", serif;
+}
+
+.sidebar {
+    background-color: #FDF6E3;
+}
+
+.sidebar-toggle {
+    background-color: #FDF6E3;
+}
+
+.markdown-section code,
+.markdown-section pre {
+    background-color: #EEE8D5;
+}
+
+.markdown-section code {
+    color: #CB4B16;
+}
+
+.sidebar ul li.active>a {
+    color: #268BD2;
+    color: var(--theme-color, #268BD2);
+}
+
+.markdown-section a {
+    color: #268BD2;
+    color: var(--theme-color, #268BD2);
+    font-weight: 600;
+}
+
+.progress {
+    background-color: #268BD2;
+    background-color: var(--theme-color, #268BD2);
+}
+
+.sidebar-toggle span {
+    background-color: #268BD2;
+    background-color: var(--theme-color, #268BD2);
+}
