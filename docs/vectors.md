@@ -1,6 +1,6 @@
 ## Vectors
 
-Cvec234 defines the following vectors in 2D,3D,4D:
+Cvec234 defines the following vectors in 2, 3, 4 dimensions:
 
 * `byte2`, `byte3`, `byte4` for vectors of `unsigned char`.
 * `int2`, `int3`, `int4` for vectors of `int`.
@@ -17,7 +17,7 @@ v[0] += v[1];
 
 ## Elementwise Operations
 
-Vectors can be added, subtracted, multiplied and divided elementwise using the arithmetic operators (+,-,*,/):
+Vectors can be added, subtracted, multiplied and divided elementwise using the arithmetic operators:
 ```clike
 double2 a = {1.0, 2.0};
 double2 b = {1.0, 2.0};
