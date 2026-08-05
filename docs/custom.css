@@ -23,6 +23,23 @@ body {
     color: #CB4B16;
 }
 
+
+/* Header row background */
+.markdown-section table th {
+    background-color: #EEE8D5;
+}
+/* Body cell background (all rows) */
+.markdown-section table td {
+    background-color: #FDF6E3;
+}
+/* Border color, if you want it to match the palette too */
+.markdown-section table th,
+.markdown-section table td {
+    border: 1px solid #93A1A1;
+}
+
+
+
 .sidebar ul li.active>a {
     color: #268BD2;
     color: var(--theme-color, #268BD2);
