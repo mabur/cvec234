@@ -11,7 +11,7 @@ Vectors and matrices are then used for things like:
 * Velocities and accelerations
 * Transformations
 
-Cvec234 works with these languages and compilers:
+Cvec234 targets these languages and compilers:
 * C or C++ using GCC or Clang. It uses compiler extensions for arithmetic operators and SIMD.
 * C++ using MSVC. In this case it uses C++ for arithmetic operators, but does not support SIMD.
 

@@ -1,6 +1,6 @@
 ## Vectors
 
-Cvec234 defines the following vectors in 2, 3, 4 dimensions:
+Cvec234 defines these vectors in 2, 3, 4 dimensions:
 
 * `byte2`, `byte3`, `byte4` for vectors of `unsigned char`.
 * `int2`, `int3`, `int4` for vectors of `int`.
