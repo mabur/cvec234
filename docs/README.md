@@ -5,12 +5,11 @@ Cvec234 is a lightweight C library that provides small vectors and matrices in 2
 * Computer graphics
 * Computer vision
 
-Vectors and matrices are then typically used for things like:
-* Cartesian points and directions
-* Homogeneous points and directions
-* Transformations
-* Velocities and accelerations
+Vectors and matrices are then used for things like:
 * Color components
+* Points and directions, using Cartesian or Homogeneous coordinates
+* Velocities and accelerations
+* Transformations
 
 Cvec234 works with these languages and compilers:
 * C or C++ using GCC or Clang. It uses compiler extensions for arithmetic operators and SIMD.
