@@ -1,3 +1,20 @@
 * Use macros that specifies the dimension to ignore the last coordinate when you want to treat a normalized homogeneous vector as a cartesian vector:
   - NORM3(a)
   - SQUARED_DISTANCE3(a, b)
+
+* Alternative libraries:
+  - Eigen C++
+  - GLM C++
+  - HandmadeMath
+  - lin
+
+
+Library Language  Scope Approx. LOC (impl only) Link
+cvec234 C / C++ Fixed-size 2/3/4D vectors & matrices  733 (measured)  (this repo)
+linmath.h github.com/datenwolf/linmath.h
+mathc github.com/felselva/mathc
+HandmadeMath github.com/HandmadeMath/HandmadeMath
+cglm github.com/recp/cglm
+DirectXMath github.com/microsoft/DirectXMath
+GLM github.com/g-truc/glm
+Eigen gitlab.com/libeigen/eigen
