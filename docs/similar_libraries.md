@@ -1,6 +1,6 @@
 ## Similar Libraries
 
-There are many similar libraries to Cvec234, designed with different scopes, trad-offs and preferences.
+There are many similar libraries to Cvec234, designed with different scopes, trade-offs and preferences.
 Here are some examples:
 
 | Library                                                                        | Dialect   |  Lines of Code |

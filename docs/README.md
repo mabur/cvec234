@@ -19,7 +19,8 @@ Cvec234 targets these languages and compilers:
 ## Examples
 
 ```clike
-#include <cvec234/cvec234.h>
+#include <cvec234/vector.h>
+#include <cvec234/matrix.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 // COLORS

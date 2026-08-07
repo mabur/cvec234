@@ -9,6 +9,8 @@ Cvec234 defines these vectors in 2, 3, 4 dimensions:
 
 They are constructed and accessed like this:
 ```clike
+#include <cvec234/vector.h>
+
 double2 v = {1.0, 2.0};
 v[0] = 3.14;
 v[1] *= -1.0;

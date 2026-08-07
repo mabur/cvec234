@@ -9,6 +9,8 @@ Cvec234 defines these square matrices in 2, 3, 4 dimensions:
 
 Matrices can be added, subtracted, multiplied and divided elementwise using the arithmetic operators, just as vectors:
 ```clike
+#include <cvec234/matrix.h>
+
 double2x2 A = ...;
 double2x2 B = ...;
 double2x2 C = A + B; 
