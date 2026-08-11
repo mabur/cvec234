@@ -32,13 +32,13 @@ float3 interpolateColors(float3 rgb1, float3 rgb2, float t) {
 ///////////////////////////////////////////////////////////////////////////////
 // 2D PARTICLES
 
-typedef struct MovingPoint {
+typedef struct Particle {
     double2 position;
     double2 velocity;
-} MovingPoint;
+} Particle;
 
-MovingPoint updateMovingPoint(MovingPoint p) {
-    p.position = p.position + p.velocity;
+Particle updatParticle(Particle p) {
+    p.position += p.velocity;
     return p;
 }
 
