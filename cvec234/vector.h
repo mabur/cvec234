@@ -2,9 +2,10 @@
 
 #ifdef __cplusplus
     #include <cmath>
-    using std::sqrt;
+    template <typename T> T my_generic_sqrt(T x) {return std::sqrt(x);}
 #else
-    #include <tgmath.h>
+    #include <math.h>
+    #define my_generic_sqrt(x) _Generic((x), float: sqrtf, default: sqrt)(x)
 #endif
 
 #if defined(__clang__) || defined(__GNUC__)
@@ -22,8 +23,8 @@
 #define SQUARED_NORM2(a) DOT2((a), (a))
 #define SQUARED_NORM3(a) DOT3((a), (a))
 
-#define NORM2(a) (sqrt(SQUARED_NORM2(a)))
-#define NORM3(a) (sqrt(SQUARED_NORM3(a)))
+#define NORM2(a) (my_generic_sqrt(SQUARED_NORM2(a)))
+#define NORM3(a) (my_generic_sqrt(SQUARED_NORM3(a)))
 
 #define NORMALIZED2(a) (a / NORM2(a))
 #define NORMALIZED3(a) (a / NORM3(a))
