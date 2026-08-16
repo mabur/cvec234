@@ -1,6 +1,11 @@
 #pragma once
 
-#include <math.h>
+#ifdef __cplusplus
+    #include <cmath>
+    using std::sqrt;
+#else
+    #include <tgmath.h>
+#endif
 
 #if defined(__clang__) || defined(__GNUC__)
     #include "vector_implementation_extensions.h"
